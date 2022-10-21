@@ -1,9 +1,8 @@
 @echo off
-REM OneDriveBackup for TravelKilometre data files and reports
+REM OneDriveBackup for Journal data files and reports
 
-REM data files
-copy *.xml %userprofile%\OneDrive\Documents\Journal
+if not exist "%userprofile%\OneDrive\Documents\App_Data_and_Reporting_Backups\Journal\" mkdir %userprofile%\OneDrive\Documents\App_Data_and_Reporting_Backups\Journal
 
-REM report files
-copy out\*.txt %userprofile%\OneDrive\Documents\Journal
-copy out\*.html %userprofile%\OneDrive\Documents\Journal
+xcopy *.xml %userprofile%\OneDrive\Documents\App_Data_and_Reporting_Backups\Journal /Y
+
+xcopy out\*.* %userprofile%\OneDrive\Documents\App_Data_and_Reporting_Backups\Journal\out /I /Y
